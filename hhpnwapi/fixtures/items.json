@@ -1,0 +1,24 @@
+[
+    {
+        "model": "hhpnwapi.items",
+        "pk": 1,
+        "fields": {
+            "name": "Volcanic Blaze Chicken Wings",
+            "img": "https://i.imgur.com/51jNSJ1.jpg",
+            "price": 15,
+            "type": "Wings",
+            "description": "6 INCLUDED: Experience the intense heat and explosive flavor of our Volcanic Blaze Chicken Wings. These wings are not for the faint of heart but are sure to satisfy spice enthusiasts."
+        }
+    },
+    {
+        "model": "hhpnwapi.items",
+        "pk": 2,
+        "fields": {
+            "name": "Classic Crispy Wings",
+            "img": "https://i.imgur.com/jeSuQVg.jpg",
+            "price": 10,
+            "type": "Wings",
+            "description": "6 INCLUDED: Experience HHPNW signature classic crispy wings from ingredients passed down generations"
+        }
+    }
+]
