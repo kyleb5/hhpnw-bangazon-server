@@ -8,7 +8,7 @@ from hhpnwapi.models import Orders
 
 
 class OrderView(ViewSet):
-    """HHPNW event view"""
+    """HHPNW order view"""
 
     def retrieve(self, request, pk):
         """Handle GET requests for Orders"""
@@ -38,19 +38,14 @@ class OrderView(ViewSet):
     def update(self, request, pk):
         """Handle PUT requests for updating Orders"""
         orders = Orders.objects.get(pk=pk)
-        orders.customerEmail = request.data.get(
-            "customerEmail", orders.customerEmail)
-        orders.customerPhone = request.data.get(
-            "customerPhone", orders.customerPhone)
-        orders.date = request.data.get("date", orders.date)
-        orders.open = request.data.get("open", orders.open)
-        orders.orderName = request.data.get("orderName", orders.orderName)
-        orders.orderType = request.data.get("orderType", orders.orderType)
-        orders.uid = request.data.get("uid", orders.uid)
+        orders.customerEmail = request.data.get["customerEmail"]
+        orders.customerPhone = request.data.get["customerPhone"]
+        orders.date = request.data.get["date"]
+        orders.open = request.data.get["open"]
+        orders.orderName = request.data.get["orderName"]
+        orders.orderType = request.data.get["orderType"]
+        orders.uid = request.data.get["uid"]
         orders.save()
-
-        serializer = OrderSerializer(orders)
-        return Response(serializer.data)
 
     def destroy(self, request, pk):
         """Handle DELETE requests for Orders"""
