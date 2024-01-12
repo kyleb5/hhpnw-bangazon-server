@@ -26,7 +26,7 @@ class OrderView(ViewSet):
         orders = Orders.objects.create(
             customerEmail=request.data["customerEmail"],
             customerPhone=request.data["customerPhone"],
-            date=request.data["data"],
+            date=request.data["date"],
             open=request.data["open"],
             orderName=request.data["orderName"],
             orderType=request.data["orderType"],
@@ -34,6 +34,29 @@ class OrderView(ViewSet):
         )
         serializer = OrderSerializer(orders)
         return Response(serializer.data)
+
+    def update(self, request, pk):
+        """Handle PUT requests for updating Orders"""
+        orders = Orders.objects.get(pk=pk)
+        orders.customerEmail = request.data.get(
+            "customerEmail", orders.customerEmail)
+        orders.customerPhone = request.data.get(
+            "customerPhone", orders.customerPhone)
+        orders.date = request.data.get("date", orders.date)
+        orders.open = request.data.get("open", orders.open)
+        orders.orderName = request.data.get("orderName", orders.orderName)
+        orders.orderType = request.data.get("orderType", orders.orderType)
+        orders.uid = request.data.get("uid", orders.uid)
+        orders.save()
+
+        serializer = OrderSerializer(orders)
+        return Response(serializer.data)
+
+    def destroy(self, request, pk):
+        """Handle DELETE requests for Orders"""
+        orders = Orders.objects.get(pk=pk)
+        orders.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class OrderSerializer(serializers.ModelSerializer):

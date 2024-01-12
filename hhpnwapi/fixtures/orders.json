@@ -1,0 +1,15 @@
+[
+    {
+        "model": "hhpnwapi.orders",
+        "pk":  1,
+        "fields": {
+            "customerEmail": "kyle@gmail.com",
+            "customerPhone": 1234567891,
+            "date": "2023-09-15",
+            "open": true,
+            "orderName": "Pizza Night with Family",
+            "orderType": "pickup",
+            "uid": "oiegsjksoipjkgoip23904"
+        }
+    }
+]
