@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Orders(models.Model):
+
     customerEmail = models.EmailField()
     customerPhone = models.IntegerField()
     date = models.DateField()

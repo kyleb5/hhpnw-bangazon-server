@@ -18,11 +18,12 @@ from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
 from django.urls import path
-from hhpnwapi.views import OrderView, ItemView
+from hhpnwapi.views import OrderView, ItemView, RevenueView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'orders', OrderView, 'orders')
 router.register(r'items', ItemView, 'items')
+router.register(r'revenue', RevenueView, 'revenue')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
