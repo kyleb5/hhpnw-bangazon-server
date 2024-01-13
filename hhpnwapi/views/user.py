@@ -32,10 +32,29 @@ class UserView(ViewSet):
             joinDate=request.data["joinDate"],
             hasAccess=request.data["hasAccess"]
         )
+        serializer = UserSerializer(user)
+        return Response(serializer.data)
+
+    def update(self, request, pk):
+        """Handle PUT requests for users"""
+        user = User.objects.get(pk=pk)
+        user.uid = request.data["uid"]
+        user.joinDate = request.data["joinDate"]
+        user.hasAccess = request.data["hasAccess"]
+        user.id = request.data["id"]
+        user.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+    def destroy(self, request, pk):
+        """Handle DELETE users"""
+        user = User.objects.get(pk=pk)
+        user.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 class UserSerializer(serializers.ModelSerializer):
     """JSON serializer for user"""
     class Meta:
         model = User
-        fields = ('uid', 'joinDate', 'hasAccess')
+        fields = ('uid', 'joinDate', 'hasAccess', 'id')
