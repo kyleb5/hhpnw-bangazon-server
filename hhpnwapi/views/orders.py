@@ -38,14 +38,15 @@ class OrderView(ViewSet):
     def update(self, request, pk):
         """Handle PUT requests for updating Orders"""
         orders = Orders.objects.get(pk=pk)
-        orders.customerEmail = request.data.get["customerEmail"]
-        orders.customerPhone = request.data.get["customerPhone"]
-        orders.date = request.data.get["date"]
-        orders.open = request.data.get["open"]
-        orders.orderName = request.data.get["orderName"]
-        orders.orderType = request.data.get["orderType"]
-        orders.uid = request.data.get["uid"]
+        orders.customerEmail = request.data.get("customerEmail")
+        orders.customerPhone = request.data.get("customerPhone")
+        orders.date = request.data.get("date")
+        orders.open = request.data.get("open")
+        orders.orderName = request.data.get("orderName")
+        orders.orderType = request.data.get("orderType")
+        orders.uid = request.data.get("uid")
         orders.save()
+        return Response({'message': 'Order updated successfully'}, status=status.HTTP_200_OK)
 
     def destroy(self, request, pk):
         """Handle DELETE requests for Orders"""

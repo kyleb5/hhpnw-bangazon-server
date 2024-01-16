@@ -9,4 +9,4 @@ class Orders(models.Model):
     open = models.BooleanField()
     orderName = models.CharField(max_length=12)
     orderType = models.CharField(max_length=12)
-    uid = models.CharField(max_length=50)
+    uid = models.TextField(max_length=50)
