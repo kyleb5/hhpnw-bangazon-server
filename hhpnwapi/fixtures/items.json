@@ -20,5 +20,16 @@
             "type": "Wings",
             "description": "6 INCLUDED: Experience HHPNW signature classic crispy wings from ingredients passed down generations"
         }
+    },
+    {
+        "model": "hhpnwapi.items",
+        "pk": 3,
+        "fields":{
+            "name": "Mushroom Cheese Pizza",
+            "img": "https://i.imgur.com/daH1P4O.jpg",
+            "price": 15,
+            "type": "Pizza",
+            "description": "Enjoy a WHOLE pie of perfect mushroom cheese pizza served with a side of MUSIC"
+        }
     }
 ]
