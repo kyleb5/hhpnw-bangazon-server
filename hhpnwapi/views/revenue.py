@@ -56,6 +56,17 @@ class RevenueView(ViewSet):
         revenue.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+    # named capturing group
+    @action(detail=False, methods=['GET'], url_path='orderid/(?P<order_id>\d+)')
+    def get_order_by_orderid(self, request, order_id):
+        """Retrieve revenue information using orderid"""
+        try:
+            revenue = Revenue.objects.get(orderid=order_id)
+            serializer = RevenueSerializer(revenue)
+            return Response(serializer.data)
+        except Revenue.DoesNotExist as ex:
+            return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
+
 
 class OrderSerializer(serializers.ModelSerializer):
     """JSON serializer for orders"""
