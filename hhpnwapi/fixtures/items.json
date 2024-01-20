@@ -31,5 +31,27 @@
             "type": "Pizza",
             "description": "Enjoy a WHOLE pie of perfect mushroom cheese pizza served with a side of MUSIC"
         }
+    },
+    {
+        "model": "hhpnwapi.items",
+        "pk": 4,
+        "fields":{
+            "name": "Extra Cheese Pizza",
+            "img": "https://i.imgur.com/7hQgMDw.jpg",
+            "price": 13,
+            "type": "Pizza",
+            "description": "Enjoy a WHOLE cheese only pizza with minimal toppings"
+        }
+    }, 
+    {
+        "model": "hhpnwapi.items",
+        "pk": 5,
+        "fields":{
+            "name": "Pepperoni Cheese Pizza With Wing Bundle",
+            "img": "https://i.imgur.com/a7TZMBY.jpg",
+            "price": 20,
+            "type": "Pizza",
+            "description": "Enjoy a well priced bundle meal with pepperoni pizza and a side of wings"
+        }
     }
 ]
