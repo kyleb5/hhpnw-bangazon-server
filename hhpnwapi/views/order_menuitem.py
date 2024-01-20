@@ -73,6 +73,10 @@ class OrderMenuItemSerializer(serializers.ModelSerializer):
     # Include the 'order_uid' field in the serializer
     order_uid = serializers.CharField(source='orders.uid', read_only=True)
 
+    order_open = serializers.BooleanField(source='orders.open', read_only=True)
+
+    price = serializers.IntegerField(source='items.price', read_only=True)
+
     class Meta:
         model = OrderMenuItem
-        fields = ('id', 'orders', 'items', 'order_uid')
+        fields = ('id', 'orders', 'items', 'order_uid', 'price', 'order_open')
